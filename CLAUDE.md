@@ -14,17 +14,17 @@ A Claude Code skill for Xiaohongshu emotional content creation. Names feelings r
 
 ## HOW TO NAVIGATE
 1. `SKILL.md` — Core workflow (4 flows: A完整创作 B配文 C推荐 D复盘)
-2. `references/trend-matrix.md` — Trend research toolchain + Pinterest methodology
-3. `references/account-dna.md` — Account persona, voice, banned patterns
-4. `references/exemplars.md` — Chinese prose rhythm reference (loaded at STEP 5)
-5. `references/writing-techniques.md` — Copywriting techniques: hooks, CTA, rhetoric
-6. `references/quality-signals.md` — Copy quality gates (loaded at STEP 6)
-7. `references/search-strategy.md` — Tag generation + search verification (STEP 7)
-8. `references/visual-guide.md` — Midjourney Prompt architecture + anti-patterns (STEP 8)
-9. `references/copywriting-mode.md` — Image captioning workflow (Flow B)
-10. `references/success-patterns.md` — Verified hit genes (what worked)
-11. `references/failure-patterns.md` — Failure patterns (what didn't work)
-12. `references/workflow-memory.md` — Session experience pool
+2. `references/trend-matrix.md` — Trend research toolchain + Pinterest methodology (STEP 0)
+3. `references/account-dna.md` — Account persona, voice, banned patterns (STEP 1-2)
+4. `references/workflow-memory.md` — Session experience pool (STEP 3)
+5. `references/success-patterns.md` — Verified hit genes (STEP 3, optional)
+6. `references/failure-patterns.md` — Failure patterns (STEP 3, optional)
+7. `references/exemplars.md` — Chinese prose rhythm reference (STEP 5)
+8. `references/writing-techniques.md` — Copywriting techniques: hooks, CTA, rhetoric (STEP 5)
+9. `references/quality-signals.md` — Copy quality gates (STEP 6)
+10. `references/search-strategy.md` — Tag generation + search verification (STEP 7)
+11. `references/visual-guide.md` — Midjourney Prompt architecture + anti-patterns (STEP 8)
+12. `references/copywriting-mode.md` — Image captioning workflow (Flow B)
 
 ## KEY CONVENTIONS
 - Design philosophy: less is more. Every rule must justify its existence.
