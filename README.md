@@ -28,13 +28,20 @@ This skill helps you create emotional content that feels written by a person, no
 ## Pipeline / 创作流程
 
 ```
-STEP 0: Trend research → STEP 1-2: Parse + emotion-medium check
- → STEP 3: Metaphor mining → ★ Human confirm A-1
- → STEP 4: Narrative angle cards → ★ Human confirm A-2
- → STEP 5: Write copy → Show to user → Iterate together
- → STEP 6: Visual brief → STEP 7: Tags
- → STEP 8: Light self-check → ★ User confirm
- → STEP 9: Persist → STEP 10: Data review
+Flow A 完整创作:
+  STEP 0: Trend → STEP 1-2: Parse + medium check
+  → STEP 3: Metaphor mining (load experience) → ★ A-1
+  → STEP 4: Narrative angles → ★ A-2
+  → STEP 5: Write copy → Show → Iterate
+  → STEP 6: Copy quality gate → STEP 7: Tags
+  → STEP 8: Visual brief + visual QC → ★ Confirm
+  → STEP 9: Store to Feishu
+
+Flow B 配文: Image→Metaphor → STEP 4→5→6→7 → ★ Confirm → STEP 9
+
+Flow C 推荐: STEP 0 → Recommend cards
+
+Flow D 复盘: Collect data → Triage → Hit→success / Poor→failure
 ```
 
 Two human checkpoints (metaphor + angle). Writing is a conversation, not a black box. No silent rewrites, no numeric scoring.
@@ -44,16 +51,16 @@ Two human checkpoints (metaphor + angle). Writing is a conversation, not a black
 ## Quick start / 快速开始
 
 ```bash
-# Topic recommendation
+# Topic recommendation (Flow C)
 /inner-voice 推荐
 
-# Create from an emotion
+# Create from an emotion (Flow A)
 /inner-voice 下班后的空虚感
 
-# Data review
-/inner-voice 复盘 安静的倦怠
+# Data review (Flow D)
+/inner-voice 复盘 https://www.xiaohongshu.com/explore/xxx
 
-# Write copy for existing images
+# Write copy for existing images (Flow B)
 /inner-voice 配文 /path/to/images/ 孤独
 ```
 
@@ -78,12 +85,12 @@ inner-voice/
 │ ├── account-dna.md
 │ ├── visual-guide.md
 │ ├── writing-techniques.md
+│ ├── success-patterns.md
 │ ├── failure-patterns.md
+│ ├── workflow-memory.md
 │ ├── search-strategy.md
 │ ├── quality-signals.md
 │ └── copywriting-mode.md
-│
-├── data/content-library.md  ← Content asset index
 └── evals/evals.json  ← Test cases
 ```
 

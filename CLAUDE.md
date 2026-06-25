@@ -13,21 +13,24 @@ A Claude Code skill for Xiaohongshu emotional content creation. Names feelings r
 - Image copywriting (write text for existing images)
 
 ## HOW TO NAVIGATE
-1. `SKILL.md` — Core workflow (10 STEPs: 0→1→2→3→4→5→6→7→8→9→10)
+1. `SKILL.md` — Core workflow (4 flows: A完整创作 B配文 C推荐 D复盘)
 2. `references/trend-matrix.md` — Trend research toolchain + Pinterest methodology
 3. `references/account-dna.md` — Account persona, voice, banned patterns
 4. `references/visual-guide.md` — Midjourney Prompt architecture + anti-patterns
 5. `references/writing-techniques.md` — Copywriting techniques reference
-6. `data/content-library.md` — Index of all created content
+6. `references/success-patterns.md` — Verified hit genes (what worked)
+7. `references/failure-patterns.md` — Failure patterns (what didn't work)
+8. `references/workflow-memory.md` — Session experience pool
 
 ## KEY CONVENTIONS
 - Design philosophy: less is more. Every rule must justify its existence.
 - 底层逻辑 (only mandatory read): 倾听 → 翻译 → 陪伴
 - Two human checkpoints: A-1 (metaphor) and A-2 (narrative angle)
 - After writing, show draft to user immediately — iterate together
-- No numeric scoring. Lightweight qualitative self-check before final output.
+- No numeric scoring. Formula-based quality gates before final output.
 - References loaded only when needed, not all at once
 - Visual color decisions use per-topic real-time Pinterest research
+- STEP 3 loads workflow-memory.md (mandatory); success-patterns + failure-patterns loaded if user opts in
 
 ## GIT WORKFLOW（防冲突规范）
 
