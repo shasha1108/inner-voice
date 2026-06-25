@@ -71,7 +71,7 @@ inner-voice/
 ├── assets/schemas/  ← Reference schemas
 │
 ├── scripts/
-│ ├── score.py ← Content scoring tool
+│ ├── score.py ← Content scoring tool (archived)
 │ ├── feishu-upsert.sh ← Feishu write
 │ └── topic-upsert.sh ← Topic asset upsert
 │

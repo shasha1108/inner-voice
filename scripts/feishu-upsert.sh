@@ -2,7 +2,7 @@
 # 飞书多维表格写入
 # 用法: bash scripts/feishu-upsert.sh '<json_payload>'
 # JSON payload 需包含: 生成时间, 情绪主题词, 内容类型, 笔记标题, 正文文案, 结尾钩子,
-#  MJ提示词组, 可灵Brief, 标签, 质量评分, 质检状态, 叙事角度, 选题来源, 发布状态
+#  MJ提示词组, 可灵Brief, 标签, 叙事角度, 选题来源, 发布状态
 set -euo pipefail
 
 # Load .env if present (local secrets, not committed to git)

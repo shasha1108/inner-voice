@@ -160,7 +160,7 @@
 
 ---
 
-*最后更新：06-25 | 词条数：4*
+*词条数：4*
 
 ---
 
@@ -170,7 +170,7 @@
 {
  "repo": "shasha1108/inner-voice",
  "total": 4,
- "updated": "06-25",
+ "updated": "2026-06-25",
  "works": [
  {
  "slug": "quiet-breakdown",

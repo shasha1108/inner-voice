@@ -1,6 +1,6 @@
-<!-- Agent: 视觉 Brief 完整规则 — 封面停滑五铁律、AI同质化死亡区、配色第一性原则、风格锚点库、MJ Prompt架构规范。STEP 4 必读。-->
+<!-- Agent: 视觉 Brief 完整规则 — 封面停滑五铁律、AI同质化死亡区、配色第一性原则、风格锚点库、MJ Prompt架构规范。STEP 6 必读。-->
 
-# 视觉 Brief 完整规则（STEP 4 参考文档）
+# 视觉 Brief 完整规则（STEP 6 参考文档）
 
 > **目录：** [AI同质化死亡区](#-ai同质化死亡区写每个prompt前强制对照命中任一条作废重写) · [Disturbing检查](#-概念层面-disturbing-检查写-prompt-前强制--先于死亡区) · [速查卡](#-速查卡step-4首次执行前必须读全文同一对话第二次及以后从此速查卡引用) · [最高法则](#40-视觉最高法则美--情绪重量--概念钩子三者必须同时成立) · [策略矩阵](#41-视觉策略矩阵升级--替代单一公式) · [情绪本体优先](#42-情绪本体优先不画情绪的环境画情绪本身发生的内部机制) · [凝固不可能状态](#43-凝固不可能状态one-massive策略必用--其他策略可选) · [风格调色板](#44-视觉风格调色板) · [美感↔重量校验](#45-写prompt时的美感重量双向校验) · [3秒识别](#46-3秒识别硬约束) · [MJ架构规范](#405-mj-v81-prompt-架构规范写第一个prompt前必读) · [AI可执行性](#47-ai可执行性五问) · [可实现度分层](#不可能状态的ai可实现度分层) · [输出规范](#图文模式输出规范4张图) · [风格锚点库](#风格锚点库已验证通过的风格组合--写prompt时从此库选择而非凭空创造) · [审美底线自检](#审美底线自检prompt-最终确定前必经--不可跳过)
 
@@ -47,7 +47,7 @@
 | 9 | **无面人+花海/麦田** | `faceless figure in flower field/wheat field, flowing dress` | 小红书AI头像类标配 |
 | 10 | **书本/羽毛/时钟悬浮** | `floating books/feathers/clocks, magical levitation` | 超现实最偷懒的词汇 |
 | 11 | **低饱和灰绿+卡通小女孩** | `muted sage green, cute girl character, storybook style` | 安静倦怠实证失败，视觉与赛道要求倒挂 |
-| 12 | **人体上的建筑式空洞** | `void in torso / missing section revealing interior / hollow cavity in body / architectural emptiness in human figure / light emanating from within the body` | 🚨-06-12负鼠创作失败实证：任何"身体上有洞""胸腔空洞透光""身体内部建筑式void"的概念——不管什么画风色调——都是 disturbing 的。不是执行的问题，是概念本身的问题 |
+| 12 | **人体上的建筑式空洞** | `void in torso / missing section revealing interior / hollow cavity in body / architectural emptiness in human figure / light emanating from within the body` | 负鼠创作失败实证：任何"身体上有洞""胸腔空洞透光""身体内部建筑式void"的概念——不管什么画风色调——都是 disturbing 的。不是执行的问题，是概念本身的问题 |
 
 **惩罚机制**：Prompt中出现了以上任一种 → 立即作废 → 回到4.2（情绪本体检验）重新构思视觉载体 → 不得仅替换词汇后重新提交。
 
@@ -114,7 +114,7 @@
 
 ---
 
-### 🚨 概念辨识度 > 执行完成度（06-12 新增 · 写 Prompt 前强制判断）
+### 🚨 概念辨识度 > 执行完成度（写 Prompt 前强制判断）
 
 > **一个视觉概念，如果可以被总结为"又一张X调的图"，不管执行多精良——替换它。**
 
@@ -135,7 +135,7 @@
  → "又一张X" = 用户直接划走，不会停下来
 ```
 
-> **蓝色没有维度教训**（06-11，2👍/5311粉丝）：深蓝+迷雾+暖橘小屋 → "又一张蓝色调的治愈图" → 0.5秒判定完成 → 划走。图片完成度高但概念辨识度为零。
+> **蓝色没有维度教训**：深蓝+迷雾+暖橘小屋 → "又一张蓝色调的治愈图" → 0.5秒判定完成 → 划走。图片完成度高但概念辨识度为零。
 
 ---
 
@@ -257,15 +257,15 @@
 
 | 风格方向 | 适合情绪范围 | 协调词组 | 参数建议 |
 |---------|------------|---------|---------|
-| **油画** | 重量/张力：撕裂、幻灭、崩溃 | `oil painting, painterly brushstrokes, dramatic chiaroscuro, rich pigment texture` | `--s 250 --ar 3:4 --v 6.1` |
-| **水彩插画** | 柔软/克制：孤独、失望、渴望自由 | `watercolor illustration, muted palette, soft wash edges, ample negative space` | `--ar 3:4 --v 6.1` |
-| **电影写实** | 真实/沉浸：焦虑、失控、倦怠 | `cinematic photography, natural ambient lighting, film grain, kodak portra tones` | `--style raw --ar 3:4 --v 6.1` |
-| **极简插画** | 冷静/克制：冷漠、疏离、迷失 | `minimalist illustration, flat tonal blocks, geometric composition, large negative space` | `--ar 3:4 --v 6.1` |
-| **超现实艺术** | 悖论/梦境：内耗、撕裂、迷失 | `surrealist art, Magritte-inspired dreamlike composition, conceptual juxtaposition` | `--s 300 --ar 3:4 --v 6.1` |
-| **水墨/版画** | 古典/锋利：崩溃、幻灭 | `black and white ink illustration, sumi-e brushwork, high contrast` | `--ar 3:4 --v 6.1` |
-| **数字蒙太奇** | 当代/异化：疏离、内耗、数字倦怠 | `digital collage, mixed media, contemporary surrealism, layered textures` | `--s 250 --ar 3:4 --v 6.1` |
-| **复古胶片插画** | 怀旧/真实感（插画语言） | `vintage illustration, faded analog tones, warm tint, visible grain texture, hand-drawn quality` | `--ar 3:4 --v 6.1` |
-| **手绘毛边** | 生活感/附近：重返附近、日常 | `rough sketch illustration, imperfect lines, torn paper texture, analog warmth, handwritten feel` | `--ar 3:4 --v 6.1` |
+| **油画** | 重量/张力：撕裂、幻灭、崩溃 | `oil painting, painterly brushstrokes, dramatic chiaroscuro, rich pigment texture` | `--s 250 --ar 3:4 --v 8.1` |
+| **水彩插画** | 柔软/克制：孤独、失望、渴望自由 | `watercolor illustration, muted palette, soft wash edges, ample negative space` | `--ar 3:4 --v 8.1` |
+| **电影写实** | 真实/沉浸：焦虑、失控、倦怠 | `cinematic photography, natural ambient lighting, film grain, kodak portra tones` | `--style raw --ar 3:4 --v 8.1` |
+| **极简插画** | 冷静/克制：冷漠、疏离、迷失 | `minimalist illustration, flat tonal blocks, geometric composition, large negative space` | `--ar 3:4 --v 8.1` |
+| **超现实艺术** | 悖论/梦境：内耗、撕裂、迷失 | `surrealist art, Magritte-inspired dreamlike composition, conceptual juxtaposition` | `--s 300 --ar 3:4 --v 8.1` |
+| **水墨/版画** | 古典/锋利：崩溃、幻灭 | `black and white ink illustration, sumi-e brushwork, high contrast` | `--ar 3:4 --v 8.1` |
+| **数字蒙太奇** | 当代/异化：疏离、内耗、数字倦怠 | `digital collage, mixed media, contemporary surrealism, layered textures` | `--s 250 --ar 3:4 --v 8.1` |
+| **复古胶片插画** | 怀旧/真实感（插画语言） | `vintage illustration, faded analog tones, warm tint, visible grain texture, hand-drawn quality` | `--ar 3:4 --v 8.1` |
+| **手绘毛边** | 生活感/附近：重返附近、日常 | `rough sketch illustration, imperfect lines, torn paper texture, analog warmth, handwritten feel` | `--ar 3:4 --v 8.1` |
 
 **风格选择决策三问：**
 1. 情绪本质适合什么"质感"？
@@ -423,28 +423,6 @@
 MJ Prompt：[完整英文Prompt + 参数]
 ```
 
-## 视频模式输出规范（8张图）
-
-```
-图1：建立氛围 — 环境先行，人物缺席或极小化
-图2-3：沉入情绪 — 人物进入状态，密度提升
-图4-5：情绪高峰 — 张力最强，隐喻最具象化
-图6-7：开始转化 — 光线变化，状态边缘微妙改变
-图8：留白升华 — 最大留白，余韵而非解决
-```
-
-然后生成可灵Brief：
-```
-【可灵 Brief】
-起始帧状态：
-运动主体：（光线/发丝/雾气/水波/背景纹理）
-运动方式：（缓慢流动/轻微起伏/从外向内弥漫）
-镜头行为：（静止保持 / 极缓慢推近 / 轻微呼吸式抖动）
-情绪节奏：极慢速
-建议时长：
-可灵提示词：（中文，30-50字）
-```
-
 ---
 
 ## 风格锚点库（已验证通过的风格组合 · 写Prompt时从此库选择而非凭空创造）
@@ -490,7 +468,7 @@ MJ Prompt：[完整英文Prompt + 参数]
 
 | 参数 | 作用 | 建议值 |
 |------|------|--------|
-| `--ar` | 画幅比例 | `3:4`（图文）/ `9:16`（视频封面） |
+| `--ar` | 画幅比例 | `3:4`（图文竖图） |
 | `--v` | 模型版本 | **`8.1`**（已升级，禁止继续用6.1）|
 | `--raw` | 减少自动美化 | 插画/故事书风格首选加；超现实方向不加 |
 | `--stylize` | 风格化程度 | `150-200`（自然写实）/ `500`（高度风格化）|
