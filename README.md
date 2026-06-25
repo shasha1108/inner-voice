@@ -91,7 +91,6 @@ inner-voice/
 │ ├── search-strategy.md
 │ ├── quality-signals.md
 │ └── copywriting-mode.md
-└── evals/evals.json  ← Test cases
 ```
 
 ---
