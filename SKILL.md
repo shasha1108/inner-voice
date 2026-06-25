@@ -657,7 +657,7 @@ CTA 状态：{有/无 + 类型}
 bash scripts/feishu-upsert.sh '<json_payload>'
 ```
 
-**9.4 更新 `data/content-library.md` JSON 索引块**
+**9.4 更新 `data/content-library.md` 词条索引和词条详情**
 
 任意一步失败 → 告知用户 + 继续后续步骤 + 最终汇总。
 
