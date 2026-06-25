@@ -166,6 +166,16 @@ lark-cli base +record-upsert \
 
 ### STEP 1：解析输入 + 受众锚定
 
+> 进入正式创作前，先询问用户是否做趋势调研。
+
+**趋势调研分支（流程 A 进入时首先执行）：**
+
+> 是否先做趋势调研（STEP 0）？扫描 Reddit/X/微博等平台的"孤独"相关情绪信号 + Pinterest 视觉趋势，帮助选题更精准。
+> 【是】→ 跳转 STEP 0，调研完成后回到 STEP 1，携带 `trend_emotion_temp` + `pinterest_colors` 约束
+> 【否】→ 继续 STEP 1
+
+---
+
 > 📖 账号人设、受众、叙事规则、禁用句式、情绪-媒介匹配 → Read `references/account-dna.md`
 
 提取 `emotion_theme`。`content_type` 默认 = "图文"（本 skill 为图文创作专用；如需视频创作，用户应在触发时明确指定）。
