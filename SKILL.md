@@ -170,9 +170,61 @@ lark-cli base +record-upsert \
 
 **趋势调研分支（流程 A 进入时首先执行）：**
 
-> 是否先做趋势调研（STEP 0）？扫描 Reddit/X/微博等平台的"孤独"相关情绪信号 + Pinterest 视觉趋势，帮助选题更精准。
-> 【是】→ 跳转 STEP 0，调研完成后回到 STEP 1，携带 `trend_emotion_temp` + `pinterest_colors` 约束
+> 是否先做趋势调研？围绕「{emotion_theme}」扫描全球情绪信号 + Pinterest 视觉趋势，帮助后续隐喻和视觉方向更精准。
+> 【是】→ 执行下方「聚焦版 STEP 0」
 > 【否】→ 继续 STEP 1
+
+**聚焦版 STEP 0（流程 A 专用 · 围绕用户输入的情绪主题）：**
+
+> 与流程 C 的区别：流程 C 是泛扫 → 推荐选题方向。流程 A 的聚焦版是围绕**已确定的情绪主题**，只做三件事——验证搜索价值、感知情绪温度、提取视觉方向。
+
+**1. 小红书搜索验证（强制）：**
+
+```
+opencli xiaohongshu search "{emotion_theme}" -f json --limit 10
+opencli xiaohongshu search "{emotion_theme} 情绪" -f json --limit 5
+```
+
+提取：
+- `search_value`：高(1w+)/中(1k-1w)/低(<1k)。低 → 补场景词变体（如"孤独感""一个人"）重新搜索，找到高搜索近义词
+- `content_homogeneity`：前10条是否同质化严重？→ 记录为差异化机会/红海警示
+- `trend_emotion_temp`：前10条的情绪温度分布（严肃沉重/温暖治愈/轻量幽默/冷静克制）
+
+**2. 全球情绪信号扫描（围绕主题 · Reddit + X）：**
+
+```
+opencli reddit search "{emotion_theme}" -f json --limit 10
+opencli reddit search "{emotion_theme} feeling" -f json --limit 10
+```
+
+提取：
+- 目标受众如何描述这种感受？→ 记录 3-5 个自然表述 → 写入 `audience_language`（供 STEP 3 隐喻挖掘使用）
+- `trend_global_source`：这个情绪在哪个平台讨论最活跃？
+
+**3. Pinterest 视觉方向调研（围绕主题 · 强制）：**
+
+```
+WebSearch: "Pinterest {emotion_theme} illustration art concept emotional"
+WebSearch: "Pinterest {emotion_theme} loneliness alone aesthetic illustration"
+```
+
+提取：
+- `pinterest_colors`：反复出现的配色方案（具体 Hex 值）
+- `pinterest_composition_lighting`：构图和光影创新点
+- `pinterest_vs_xhs_gap`：Pinterest 已有但小红书尚未泛滥的视觉方向
+
+**4. 输出调研摘要（3-5 行，不输出推荐卡片）：**
+
+```
+## 趋势摘要：「{emotion_theme}」
+- 搜索价值：xxx（高/中/低，补充词：xxx）
+- 情绪温度：xxx
+- 差异化机会：xxx
+- 视觉方向：xxx（Pinterest领先指标）
+- 受众原语言：xxx, xxx, xxx（供 STEP 3）
+```
+
+> 调研摘要中的 `trend_emotion_temp` + `pinterest_colors` + `audience_language` 传入后续 STEP 2-8 作为约束。
 
 ---
 
