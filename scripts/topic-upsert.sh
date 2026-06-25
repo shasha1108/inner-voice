@@ -1,9 +1,27 @@
 #!/usr/bin/env bash
 # 选题资产库 — 飞书多维表格写入（含自动建表）
 # 用法: bash scripts/topic-upsert.sh '<json_payload>'
-# JSON 字段（按顺序）: 情绪主题词 / 选题 / 核心悖论（待命名的感受）/ 信号来源追溯 /
-# 趋势温度 / 视觉锚点 / 传播因子 / Pinterest 视觉调研 / 搜索价值 /
-# 全球信号强度 / 简中竞争烈度 / 写作难度 / 视觉差异化 / 推荐指数 / 添加时间
+#
+# JSON payload 使用字段名作为 key（非按顺序），lark-cli 按字段名匹配。
+#
+# {
+#   "情绪主题词":"...",
+#   "选题":"...",
+#   "核心悖论（待命名的感受）":"...",
+#   "信号来源追溯":"...",
+#   "趋势温度":"严肃沉重",
+#   "视觉锚点":"...",
+#   "传播因子":"...",
+#   "Pinterest 视觉调研":"...",
+#   "搜索价值":"高(1w+)",
+#   "全球信号强度":"强",
+#   "简中竞争烈度":"蓝海",
+#   "全球信号来源":"Reddit r/self",
+#   "写作难度":"中",
+#   "视觉差异化":"...",
+#   "推荐指数":4,
+#   "添加时间":"2026-06-25T10:00:00+08:00"
+# }
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -58,6 +76,7 @@ except Exception:
  '{"field_name":"搜索价值","type":3,"property":{"options":[{"name":"高(1w+)"},{"name":"中(1k-1w)"},{"name":"低(<1k)"}]}}'
  '{"field_name":"全球信号强度","type":3,"property":{"options":[{"name":"强"},{"name":"中"},{"name":"弱"}]}}'
  '{"field_name":"简中竞争烈度","type":3,"property":{"options":[{"name":"红海"},{"name":"中等"},{"name":"蓝海"}]}}'
+ '{"field_name":"全球信号来源","type":1}'
  '{"field_name":"写作难度","type":3,"property":{"options":[{"name":"高"},{"name":"中"},{"name":"低"}]}}'
  '{"field_name":"视觉差异化","type":1}'
  '{"field_name":"推荐指数","type":2}'
