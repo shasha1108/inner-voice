@@ -68,10 +68,8 @@ inner-voice/
 ├── README.md  ← This file
 │
 ├── assets/templates/  ← Output templates
-├── assets/schemas/  ← Reference schemas
 │
 ├── scripts/
-│ ├── score.py ← Content scoring tool (archived)
 │ ├── feishu-upsert.sh ← Feishu write
 │ └── topic-upsert.sh ← Topic asset upsert
 │
@@ -82,6 +80,7 @@ inner-voice/
 │ ├── writing-techniques.md
 │ ├── failure-patterns.md
 │ ├── search-strategy.md
+│ ├── quality-signals.md
 │ └── copywriting-mode.md
 │
 ├── data/content-library.md  ← Content asset index
