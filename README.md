@@ -71,8 +71,9 @@ inner-voice/
 ├── assets/schemas/  ← Reference schemas
 │
 ├── scripts/
-│ ├── persist.sh ← Git commit + push
-│ └── feishu-upsert.sh ← Feishu write
+│ ├── score.py ← Content scoring tool
+│ ├── feishu-upsert.sh ← Feishu write
+│ └── topic-upsert.sh ← Topic asset upsert
 │
 ├── references/  ← Domain knowledge, loaded on demand
 │ ├── trend-matrix.md
