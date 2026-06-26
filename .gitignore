@@ -1,29 +1,3 @@
-# Secrets
 .env
-
-# macOS
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-
-# Shell
-*.log
-
-# Temporary
-/tmp/
-*.tmp
-
-# Session files (skill runtime)
 .session/
