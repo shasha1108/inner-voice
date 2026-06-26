@@ -51,7 +51,7 @@ fi
 if [ -z "${FEISHU_CONTENT_TABLE_ID:-}" ]; then
  echo "⚠️ 未检测到 FEISHU_CONTENT_TABLE_ID，正在自动创建「内容资产库」表格..." >&2
 
- CREATE_RESULT=$(lark-cli base table-create \
+ CREATE_RESULT=$(lark-cli base +table-create \
    --base-token "$BASE_TOKEN" \
    --name "内容资产库" \
    --as user 2>&1) || true
@@ -60,7 +60,7 @@ if [ -z "${FEISHU_CONTENT_TABLE_ID:-}" ]; then
 import sys, json
 try:
  data = json.load(sys.stdin)
- tid = (data.get('data') or {}).get('table_id') or data.get('table_id') or ''
+ tid = ((data.get('data') or {}).get('table') or {}).get('id') or ''
  print(tid)
 except Exception:
  print('')
@@ -73,37 +73,37 @@ except Exception:
    exit 1
  fi
 
- # 创建字段（type: 1=文本 2=数字 3=单选 5=日期）
+ # 创建字段（type: text/number/select/datetime）
  FIELDS=(
-   '{"field_name":"笔记ID","type":1}'
-   '{"field_name":"生成时间","type":5}'
-   '{"field_name":"情绪主题词","type":1}'
-   '{"field_name":"内容类型","type":1}'
-   '{"field_name":"笔记标题","type":1}'
-   '{"field_name":"正文文案","type":1}'
-   '{"field_name":"结尾钩子","type":1}'
-   '{"field_name":"隐喻命名","type":1}'
-   '{"field_name":"情绪类型","type":3,"property":{"options":[{"name":"空间型"},{"name":"时间型外化"},{"name":"时间型"}]}}'
-   '{"field_name":"叙事角度","type":3,"property":{"options":[{"name":"A感知细节"},{"name":"B反向洞察"},{"name":"C矛盾张力"},{"name":"D功能归因"}]}}'
-   '{"field_name":"MJ提示词","type":1}'
-   '{"field_name":"标签","type":1}'
-   '{"field_name":"视觉特征","type":1}'
-   '{"field_name":"发布状态","type":3,"property":{"options":[{"name":"待发布"},{"name":"已发布"}]}}'
-   '{"field_name":"点赞","type":2}'
-   '{"field_name":"收藏","type":2}'
-   '{"field_name":"评论","type":2}'
-   '{"field_name":"分享","type":2}'
-   '{"field_name":"复盘结果","type":3,"property":{"options":[{"name":"爆款"},{"name":"中等"},{"name":"质量差"}]}}'
+   '{"name":"笔记ID","type":"text"}'
+   '{"name":"生成时间","type":"datetime"}'
+   '{"name":"情绪主题词","type":"text"}'
+   '{"name":"内容类型","type":"text"}'
+   '{"name":"笔记标题","type":"text"}'
+   '{"name":"正文文案","type":"text"}'
+   '{"name":"结尾钩子","type":"text"}'
+   '{"name":"隐喻命名","type":"text"}'
+   '{"name":"情绪类型","type":"select","options":[{"name":"空间型"},{"name":"时间型外化"},{"name":"时间型"}]}'
+   '{"name":"叙事角度","type":"select","options":[{"name":"A感知细节"},{"name":"B反向洞察"},{"name":"C矛盾张力"},{"name":"D功能归因"}]}'
+   '{"name":"MJ提示词","type":"text"}'
+   '{"name":"标签","type":"text"}'
+   '{"name":"视觉特征","type":"text"}'
+   '{"name":"发布状态","type":"select","options":[{"name":"待发布"},{"name":"已发布"}]}'
+   '{"name":"点赞","type":"number"}'
+   '{"name":"收藏","type":"number"}'
+   '{"name":"评论","type":"number"}'
+   '{"name":"分享","type":"number"}'
+   '{"name":"复盘结果","type":"select","options":[{"name":"爆款"},{"name":"中等"},{"name":"质量差"}]}'
  )
 
  echo " 正在创建字段..." >&2
  for FIELD in "${FIELDS[@]}"; do
-   lark-cli base field-create \
+   lark-cli base +field-create \
      --base-token "$BASE_TOKEN" \
      --table-id "$TABLE_ID" \
      --as user \
      --json "$FIELD" >/dev/null 2>&1 || \
-     echo " ⚠️ 字段创建跳过（可能已存在）: $(echo "$FIELD" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('field_name',''))" 2>/dev/null)" >&2
+     echo " ⚠️ 字段创建跳过（可能已存在）: $(echo "$FIELD" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('name',''))" 2>/dev/null)" >&2
  done
 
  # 写入 .env
