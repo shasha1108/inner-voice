@@ -701,7 +701,7 @@ lark-cli base +record-upsert \
 >
 > 📖 完整流程（前置检查、STEP 0 静默执行、筛选入库、邮件汇总、失败处理）→ Read `references/auto-pipeline.md`
 >
-> **定时：** `references/cron-schedule`（1 行纯 cron 表达式）。改时间 → 编辑该文件 → 用 CronCreate 重建定时任务。
+> **定时：** `conf/schedule`（1 行，`HH:MM` 格式，当前 `09:03`）。改时间 → 编辑该文件 → 用 CronCreate 重建定时任务。
 
 ---
 
@@ -719,6 +719,6 @@ lark-cli base +record-upsert \
 - 失败模式库 → `references/failure-patterns.md`
 - 工作流记忆 → `references/workflow-memory.md`
 - 自动选题流程 → `references/auto-pipeline.md`
-- 定时配置 → `references/cron-schedule`
+- 定时配置 → `conf/schedule`
 
 > 这些文件不需要每步都加载。需要时去查，不需要时不要翻。原则：少即是多。

@@ -6,9 +6,11 @@
 
 ## 定时任务
 
-**时间：** `references/cron-schedule`（1 行纯 cron 表达式，当前值见该文件）
+**时间：** `conf/schedule`（1 行，`HH:MM` 格式，如 `09:03`、`11:08`、`18:40`）
 
-**改时间：** 编辑 `cron-schedule` → 删除旧定时任务 → 用 CronCreate 重建。
+**改时间：** 编辑 `conf/schedule` → 删除旧定时任务 → 用 CronCreate 重建。
+
+**HH:MM → cron 转换:** 读取 `HH:MM`，组装为 `M H * * *`。例：`09:03` → `3 9 * * *`，`18:40` → `40 18 * * *`。
 
 ## 执行规则
 
