@@ -4,11 +4,11 @@ Auto-loaded by Claude Code when this skill repository is opened.
 
 ## SCOPE RULE（审计/分析时必须遵守）
 
-> **确定 skill 文件范围用 `git ls-files`，禁止用 `find` / `ls -R` 扫描磁盘。**
+确定 skill 文件范围用 `git ls-files`，禁止用 `find` / `ls -R` 扫描磁盘。
 
 ## FEISHU RULE（飞书操作强制规则）
 
-> **所有飞书操作通过 `lark-cli` CLI 执行。`lark-cli` 自带 OAuth 认证，Base 不存在时 `+base-create` 自动创建，Token/Table ID 由脚本自动写入 `.env`。**
+所有飞书操作通过 `lark-cli` CLI 执行。`lark-cli` 自带 OAuth 认证，Base 不存在时 `+base-create` 自动创建，Token/Table ID 由脚本自动写入 `.env`。
 
 ## GIT WORKFLOW（防冲突规范）
 
