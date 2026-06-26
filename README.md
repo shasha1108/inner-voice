@@ -115,10 +115,14 @@ inner-voice/
 
 ---
 
-## Related / 相关项目
+## 🔗 More from @shasha1108
 
-- [healing-visual-lab](https://github.com/shasha1108/healing-visual-lab) — 交互式疗愈 H5 实验
-- [healing-space](https://github.com/shasha1108/healing-space) — 触觉驱动的治愈网页
+| Repo | What |
+|------|------|
+| [healing-visual-lab](https://github.com/shasha1108/healing-visual-lab) | 交互式数字疗愈作品集——15 件 Three.js/WebGL 交互实验 |
+| [healing-space](https://github.com/shasha1108/healing-space) | 触觉驱动的交互式疗愈 H5 生成器——GPU 流体、WebGL 着色器 |
+| [pixel-bloom](https://github.com/shasha1108/pixel-bloom) | 像素艺术 × 毛玻璃美学——赛博养宠、电子水族箱 |
+| [h5-publish-skill](https://github.com/shasha1108/h5-publish-skill) | 一键发布 H5 到 GitHub Pages——拖入文件夹即上线 |
 
 ---
 
