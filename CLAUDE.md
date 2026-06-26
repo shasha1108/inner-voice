@@ -11,15 +11,7 @@ Auto-loaded by Claude Code when this skill repository is opened.
 
 ## FEISHU RULE（飞书操作强制规则）
 
-> **所有飞书操作必须通过 `lark-cli` CLI 命令执行，禁止任何手动配置。**
->
-> - ❌ 禁止要求用户提供 Token / Table ID / 凭据
-> - ❌ 禁止让用户手动创建 `.env` 或填写 `.env.example`
-> - ❌ 禁止让用户去飞书后台复制任何值
-> - ✅ `lark-cli` 自带 OAuth 认证，无需额外凭据
-> - ✅ Base 不存在时 → `lark-cli base +base-create --name "资产库" --as user` 自动创建
-> - ✅ Table 不存在时 → 脚本自动 `+table-create` + `+field-create`
-> - ✅ Token / Table ID 由脚本自动写入 `.env`，用户无需关心
+> **所有飞书操作通过 `lark-cli` CLI 执行。`lark-cli` 自带 OAuth 认证，Base 不存在时 `+base-create` 自动创建，Token/Table ID 由脚本自动写入 `.env`。**
 
 ## GIT WORKFLOW（防冲突规范）
 
