@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 飞书内容存储表 — 写入/更新（含自动建表）
+# 飞书内容资产库表 — 写入/更新（含自动建表）
 # 用法: bash scripts/feishu-upsert.sh '<json_payload>'
 #
 # JSON payload 使用字段名作为 key（非按顺序），lark-cli 按字段名匹配。
@@ -47,13 +47,13 @@ if [ -z "$PAYLOAD" ]; then
  exit 1
 fi
 
-# ── 自动建表（仅在 FEISHU_TABLE_ID 未配置时执行）───────────────────────────
-if [ -z "${FEISHU_TABLE_ID:-}" ]; then
- echo "⚠️ 未检测到 FEISHU_TABLE_ID，正在自动创建「内容存储」表格..." >&2
+# ── 自动建表（仅在 FEISHU_CONTENT_TABLE_ID 未配置时执行）───────────────────────────
+if [ -z "${FEISHU_CONTENT_TABLE_ID:-}" ]; then
+ echo "⚠️ 未检测到 FEISHU_CONTENT_TABLE_ID，正在自动创建「内容资产库」表格..." >&2
 
  CREATE_RESULT=$(lark-cli base table-create \
    --base-token "$BASE_TOKEN" \
-   --name "内容存储" \
+   --name "内容资产库" \
    --as user 2>&1) || true
 
  TABLE_ID=$(echo "$CREATE_RESULT" | python3 -c "
@@ -67,8 +67,8 @@ except Exception:
 " 2>/dev/null || echo "")
 
  if [ -z "$TABLE_ID" ]; then
-   echo "❌ 自动建表失败。请在飞书 Base 中手动创建「内容存储」表格，" >&2
-   echo " 然后将表格 ID 填入 .env: FEISHU_TABLE_ID=your_table_id" >&2
+   echo "❌ 自动建表失败。请在飞书 Base 中手动创建「内容资产库」表格，" >&2
+   echo " 然后将表格 ID 填入 .env: FEISHU_CONTENT_TABLE_ID=your_table_id" >&2
    echo " 原始返回: $CREATE_RESULT" >&2
    exit 1
  fi
@@ -107,20 +107,20 @@ except Exception:
  done
 
  # 写入 .env
- if grep -q "^FEISHU_TABLE_ID=" "$ENV_FILE" 2>/dev/null; then
-   sed -i.bak "s|^FEISHU_TABLE_ID=.*|FEISHU_TABLE_ID=$TABLE_ID|" "$ENV_FILE" && rm -f "${ENV_FILE}.bak"
+ if grep -q "^FEISHU_CONTENT_TABLE_ID=" "$ENV_FILE" 2>/dev/null; then
+   sed -i.bak "s|^FEISHU_CONTENT_TABLE_ID=.*|FEISHU_CONTENT_TABLE_ID=$TABLE_ID|" "$ENV_FILE" && rm -f "${ENV_FILE}.bak"
  else
-   echo "FEISHU_TABLE_ID=$TABLE_ID" >> "$ENV_FILE"
+   echo "FEISHU_CONTENT_TABLE_ID=$TABLE_ID" >> "$ENV_FILE"
  fi
 
- echo "✅ 「内容存储」已创建，TABLE_ID=$TABLE_ID 已写入 .env" >&2
- FEISHU_TABLE_ID="$TABLE_ID"
+ echo "✅ 「内容资产库」已创建，TABLE_ID=$TABLE_ID 已写入 .env" >&2
+ FEISHU_CONTENT_TABLE_ID="$TABLE_ID"
 fi
 
 # ── 写入记录 ─────────────────────────────────────────────────────────────────
 lark-cli base +record-upsert \
  --base-token "$BASE_TOKEN" \
- --table-id "$FEISHU_TABLE_ID" \
+ --table-id "$FEISHU_CONTENT_TABLE_ID" \
  --as user \
  --json "$PAYLOAD" 2>&1
 
