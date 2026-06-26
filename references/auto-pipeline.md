@@ -36,6 +36,8 @@ opencli doctor 2>&1
 
 ### 4. 静默入库
 
+**前置：** `.env` 缺失或 `FEISHU_BASE_TOKEN` 为空 → `lark-cli base +base-create --name "资产库" --as user` 自动创建 Base 并写入 Token。TABLE_ID 留空时脚本自动建表。
+
 对每个方向：
 1. 按 `assets/templates/recommendation-card.md` 输出格式组装字段值
 2. 组装 JSON payload — 字段定义 → Read `scripts/topic-upsert.sh`
@@ -64,5 +66,6 @@ opencli doctor 2>&1
 
 - opencli 不可用 → 告警邮件，跳过入库
 - 方向不足 3 个 → 告警邮件，跳过入库
+- 飞书 Base 不存在 → `lark-cli base +base-create --name "资产库" --as user` 自动创建，继续入库
 - 飞书写入部分失败 → 邮件标注失败条数，成功的正常入库
-- Agent Mail 发送失败 → 静默（不留日志，下次定时任务会重新正常运行）
+- Agent Mail 发送失败 → 静默（下次定时任务会重新正常运行）

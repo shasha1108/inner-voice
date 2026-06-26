@@ -555,7 +555,7 @@ lark-cli base +record-upsert \
   --json '<json_payload>'
 ```
 
-**凭据来源：** `$FEISHU_BASE_TOKEN` 及各 `TABLE_ID` 从 `.env` 读取（模板见 `.env.example`）。`.env` 不存在或缺少所需字段时 → 告知用户配置所需环境变量。
+**凭据来源：** `lark-cli` 自带 OAuth 认证，无需手动配置 Token。`$FEISHU_BASE_TOKEN` 及各 `TABLE_ID` 由脚本自动写入 `.env`（首次执行时通过 `lark-cli base +base-create` 自动创建 Base）。若 `.env` 缺失 → 执行 `lark-cli base +base-create --name "资产库" --as user` 自动创建。
 
 **失败兜底：** 执行失败时 → 告知用户错误信息 + 将 JSON payload 输出为文本，供用户手动粘贴到飞书。
 
@@ -701,7 +701,7 @@ lark-cli base +record-upsert \
 >
 > 📖 完整流程（前置检查、STEP 0 静默执行、筛选入库、邮件汇总、失败处理）→ Read `references/auto-pipeline.md`
 >
-> **定时：** `conf/schedule`（1 行，`HH:MM` 格式，当前 `09:03`）。改时间 → 编辑该文件 → 用 CronCreate 重建定时任务。
+> **定时：** `conf/schedule`（1 行，`HH:MM` 格式）。改时间 → 编辑该文件 → 用 CronCreate 重建定时任务。
 
 ---
 
