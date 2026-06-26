@@ -28,7 +28,31 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ENV_FILE="$SCRIPT_DIR/../.env"
 [ -f "$ENV_FILE" ] && source "$ENV_FILE"
 
-BASE_TOKEN="${FEISHU_BASE_TOKEN:?FEISHU_BASE_TOKEN not set — 请在 .env 中配置}"
+BASE_TOKEN="${FEISHU_BASE_TOKEN:-}"
+if [ -z "$BASE_TOKEN" ]; then
+  echo "⚠️ FEISHU_BASE_TOKEN 未配置，正在自动创建飞书 Base「资产库」..." >&2
+  CREATE_RESULT=$(lark-cli base +base-create --name "资产库" --as user 2>&1) || true
+  BASE_TOKEN=$(echo "$CREATE_RESULT" | python3 -c "
+import sys, json
+try:
+ data = json.load(sys.stdin)
+ tok = ((data.get('data') or {}).get('base') or {}).get('base_token') or ''
+ print(tok)
+except Exception:
+ print('')
+" 2>/dev/null || echo "")
+  if [ -z "$BASE_TOKEN" ]; then
+    echo "❌ 自动创建 Base 失败，原始返回: $CREATE_RESULT" >&2
+    exit 1
+  fi
+  # 写入 .env
+  if grep -q "^FEISHU_BASE_TOKEN=" "$ENV_FILE" 2>/dev/null; then
+    sed -i.bak "s|^FEISHU_BASE_TOKEN=.*|FEISHU_BASE_TOKEN=$BASE_TOKEN|" "$ENV_FILE" && rm -f "${ENV_FILE}.bak"
+  else
+    echo "FEISHU_BASE_TOKEN=$BASE_TOKEN" >> "$ENV_FILE"
+  fi
+  echo "✅ Base「资产库」已创建，Token 已写入 .env" >&2
+fi
 PAYLOAD="${1:-}"
 
 if [ -z "$PAYLOAD" ]; then
