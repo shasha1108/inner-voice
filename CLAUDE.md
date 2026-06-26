@@ -4,10 +4,7 @@ Auto-loaded by Claude Code when this skill repository is opened.
 
 ## SCOPE RULE（审计/分析时必须遵守）
 
-> **确定 skill 文件范围时，必须用 `git ls-files`，禁止用 `find` / `ls -R` 扫描磁盘。**
->
-> untracked 文件（`git ls-files --others`）不属于本 skill，不得纳入分析、审计、优化报告。
-> 本仓库与其他 skill（如 emotional-content-studio）共享部分 reference 文件名——磁盘扫描会把其他 skill 泄漏过来的文件误判为本 skill 的一部分。
+> **确定 skill 文件范围用 `git ls-files`，禁止用 `find` / `ls -R` 扫描磁盘。**
 
 ## FEISHU RULE（飞书操作强制规则）
 
