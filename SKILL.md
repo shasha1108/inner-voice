@@ -1,13 +1,7 @@
 ---
 name: inner-voice
-description: >-
-  Give unnameable feelings a voice. Metaphor-first Xiaohongshu (RED) emotional
-  content creation — naming what readers feel but can't say, in their own language.
-  TRIGGERS — 小红书创作: write/make a post · create content · emotional theme.
-  情绪内容: anxiety · emo · overthinking · loneliness · burnout · disappointment ·
-  collapse · confusion · emptiness. 账号运营: what to post today · no inspiration.
-  数据分析: post review · data analysis · 复盘. 图片配文: write copy for images.
-  NOT FOR: non-Xiaohongshu content · non-emotional topics · general social media.
+description: Give unnameable feelings a voice — metaphor-first emotional content creation for Xiaohongshu (RED).
+disable-model-invocation: true
 ---
 
 # Inner Voice · 心声
