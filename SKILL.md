@@ -187,7 +187,6 @@ disable-model-invocation: true
 | STEP 3 加载 | `references/success-patterns.md` — 爆款基因库 | **翻阅** — 查模式 |
 | STEP 3 加载 | `references/failure-patterns.md` — 失败模式库 | **翻阅** — 查反例 |
 | 配文模式 | `references/copywriting-mode.md` — 配文模式流程 | **必读全部** |
-| 自动选题 | `references/auto-pipeline.md` — 自动选题流程 | **必读全部** |
 | 持续积累 | `references/workflow-memory.md` — 工作流记忆 | **翻阅** — 有变更时更新 |
 | 定时配置 | `conf/schedule` — 定时任务时间 | **翻阅** — 改时间时编辑 |
 
